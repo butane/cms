@@ -26,12 +26,12 @@ return [
             'view'   => 'public',
         ],
         'user'    => [
-            'theme'  => 'user',
-            'view'   => 'user',
+            'theme'  => 'client',
+            'view'   => 'client',
         ],
         'client'    => [
-            'theme'  => 'public',
-            'view'   => 'public',
+            'theme'  => 'client',
+            'view'   => 'client',
         ],
     ],
 
@@ -99,6 +99,5 @@ return [
         'widget'  => 'widgets',
         'view'    => 'views',
     ],
-
 
 ];

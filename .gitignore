@@ -3,13 +3,18 @@
 ._*
 /vendor
 /node_modules
-/public/uploads
-/public/themes/*
-/.idea
-/framework
+/public/themes
+/packages
 Homestead.json
 Homestead.yaml
-
-composer.develop.json
-composer.develop.lock
 composer.lock
+package-lock.json
+
+# VScode
+~/
+ 
+# PhpStorm 
+.idea/
+*.iml
+# File-based project format:
+*.iws 

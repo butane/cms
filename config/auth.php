@@ -13,9 +13,9 @@ return [
     |
      */
 
-    'defaults'     => [
-        'api'       => 'api',
-        'guard'     => 'web',
+    'defaults' => [
+        'api' => 'client.api',
+        'guard' => 'client.web',
         'passwords' => 'user',
     ],
 
@@ -36,42 +36,45 @@ return [
     |
      */
 
-    'guards'       => [
+    'guards' => [
 
-        'user'   => [
+        'user' => [
             'web' => [
-                'driver'   => 'session',
+                'driver' => 'session',
                 'provider' => 'users',
             ],
 
             'api' => [
-                'driver'   => 'token',
+                'driver' => 'token',
                 'provider' => 'users',
+                'hash' => false,
             ],
         ],
 
-        'admin'  => [
+        'admin' => [
             'web' => [
-                'driver'   => 'session',
+                'driver' => 'session',
                 'provider' => 'users',
             ],
 
             'api' => [
-                'driver'   => 'token',
+                'driver' => 'token',
                 'provider' => 'users',
+                'hash' => false,
             ],
 
         ],
 
         'client' => [
             'web' => [
-                'driver'   => 'session',
+                'driver' => 'session',
                 'provider' => 'clients',
             ],
 
             'api' => [
-                'driver'   => 'token',
+                'driver' => 'token',
                 'provider' => 'clients',
+                'hash' => false,
             ],
 
         ],
@@ -94,23 +97,16 @@ return [
     |
      */
 
-    'providers'    => [
-        'users'   => [
+    'providers' => [
+        'users' => [
             'driver' => 'eloquent',
-            'model'  => App\User::class,
-            'table'  => 'users',
+            'model' => App\User::class,
         ],
 
         'clients' => [
             'driver' => 'eloquent',
-            'model'  => App\Client::class,
-            'table'  => 'clients',
+            'model' => App\Client::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*
@@ -132,38 +128,43 @@ return [
     |
      */
 
-    'passwords'    => [
-        'user'   => [
+    'passwords' => [
+        'user' => [
             'provider' => 'users',
-            'table'    => 'password_resets',
-            'expire'   => 60,
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
 
-        'admin'  => [
+        'admin' => [
             'provider' => 'users',
-            'table'    => 'password_resets',
-            'expire'   => 60,
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
 
         'client' => [
             'provider' => 'clients',
-            'table'    => 'password_resets',
-            'expire'   => 60,
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | Guards which can be registered online.
+    | Register User
     |--------------------------------------------------------------------------
-    |
-    | Here you can list the guards which can be registered by public user.
-    |
+    | User with following roles are  allowed to register online.
+    | other user can be created by higher levele of users in the organization
+    | Second array contains roles to be attached while creating a user online
      */
 
-    'registrable' => [
-        'user'   => true,
-        'client' => true,
-        'admin'  => false,
+    'register' => [
+        'allowed' => ['client', 'user'],
+        'roles' => [
+            'client' => null,
+            'user' => ['user'],
+            'admin' => ['admin'],
+        ],
     ],
+
+    'verify_email' => false,
 ];

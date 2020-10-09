@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller as BaseController;
+use App\Http\Response\ResourceResponse;
+use Illuminate\Http\Request;
 use Litepie\Theme\ThemeAndViews;
 use Litepie\User\Traits\RoutesAndGuards;
-use App\Http\Response\ResourceResponse;
-
+use Litepie\User\Traits\UserPages;
 
 class ResourceController extends BaseController
 {
-    use RoutesAndGuards, ThemeAndViews;
+    use RoutesAndGuards, ThemeAndViews, UserPages;
 
     /**
      * Initialize public controller.
@@ -19,10 +20,10 @@ class ResourceController extends BaseController
      */
     public function __construct()
     {
-
-        if (!empty(getenv('guard')) && getenv('guard') != 'web') {
-            $this->middleware('auth:' . $this->getGuard());
-        }
+        guard(request()->guard . '.web');
+        $this->middleware('auth:' . guard());
+        $this->middleware('verified:guard.verification.notice');
+        $this->middleware('role:' . $this->getGuardRoute());
         $this->response = app(ResourceResponse::class);
         $this->setTheme();
     }
@@ -32,11 +33,12 @@ class ResourceController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function home()
+    public function home(Request $request)
     {
-        return $this->response->title('Dashboard')
+        $user = $request->user()->toArray();
+        return $this->response->setMetaTitle(__('app.dashboard'))
             ->view('home')
+            ->data(compact('user'))
             ->output();
     }
-
 }

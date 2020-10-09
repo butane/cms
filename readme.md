@@ -1,59 +1,26 @@
-## Lavalite - Bootstrapper for Laravel Content Management System.
+# Lavalite
 
-This is an implementation of Content Management System based on [Laravel 5.2](http://laravel.com/) and [Twitter Bootstrap 3](http://getbootstrap.com/)
+![Build Status](https://travis-ci.org/LavaLite/cms.svg?branch=5.7)
+![StyleCI](https://github.styleci.io/repos/18992087/shield?branch=5.7)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+
+This is an open source of Content Management System developed with [Laravel](http://laravel.com/) framework.
+
+![Screen](https://raw.githubusercontent.com/LavaLite/docs/master/images/lavalite.png "Dashboards")
 
 ## Documentation
-Visit [Readme](https://lavalite.readme.io) for documentation
+Visit [Documentation](http://lavalite.org/docs) section in the website
 
-## System Requirements
+## System Requirements & Installation
 
-Lavalite is designed to run on a  machine with PHP 5.5.9 and MySQL 5.5.
+Visit [Installation](http://lavalite.org/docs/master/installation) section in the documentation for the details
 
-* PHP >= 5.5.9 with
-    * OpenSSL PHP Extension
-    * PDO PHP Extension
-    * Mbstring PHP Extension
-    * Tokenizer PHP Extension
-* [Composer](https://getcomposer.org) installed to load the dependencies of Lavalite.
-
-## Installation
-
-Please check the system requirements before installing Lavalite.
-
-1. You may install by cloning from github, or via composer.
-  * Github:
-    * `git clone git@github.com:LavaLite/cms.git`
-    * From a command line open in the folder, run `composer install`.
-  * Composer:
-    * `composer create-project LavaLite/cms --prefer-dist website`
-2. Run the install command to get you started:
-   `php artisan lavalite:install`
-4. You can configure mail server details in `config/mail.php`.
-5. You can configure the site in the config folder before production.
-6. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
-  * For development, you can simply run `php artisan serve`
-
-####Permissions
-Lavalite may require one set of permissions to be configured: folders within `storage` require write access by the web server.
-For more detals on installation check laravel installation giude
-http://laravel.com/docs/5.1/installation
-
-## Admin login details
-- Url: sites-public-url/admin
-- You can login with the superuser password provided at he time of installation.
 
 ## Demo
-- Public [http://demo.lavalite.org](http://demo.lavalite.org)
-- Admin [http://demo.lavalite.org/admin](http://demo.lavalite.org/admin)
-- Superuser : superuser@superuser.com - superuser@superuser
+Content Management System [https://lavalite.org/demo.html](https://lavalite.org/demo.html)
 
-##Frameworks/Libraries
+Products [https://lavalite.org/products.html](https://lavalite.org/products)
 
-### PHP Libraries
-* [laravel/laravel](https://github.com/laravel/laravel) - A PHP Framework For Web Artisans
-
-### Javascript Libraries
-* Updating
 
 ## License
 
@@ -61,6 +28,21 @@ The Lavalite CMS is open-sourced software licensed under the [MIT license](http:
 
 ## Support 
 
-Make a donation to support the work of the Open Source Initiative.
+Become a Backer / Sponsor of this Open Source Initiative.
 
-[DONATE](https://www.paypal.me/renfos)
+
+<a href="https://opencollective.com/Cms#backers" target="_blank"><img src="https://opencollective.com/Cms/backers.svg?width=890"></a>
+
+<a href="https://opencollective.com/Cms/sponsor/0/website" target="_blank"><img src="https://opencollective.com/Cms/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/Cms/sponsor/1/website" target="_blank"><img src="https://opencollective.com/Cms/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/Cms/sponsor/2/website" target="_blank"><img src="https://opencollective.com/Cms/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/Cms/sponsor/3/website" target="_blank"><img src="https://opencollective.com/Cms/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/Cms/sponsor/4/website" target="_blank"><img src="https://opencollective.com/Cms/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/Cms/sponsor/5/website" target="_blank"><img src="https://opencollective.com/Cms/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/Cms/sponsor/6/website" target="_blank"><img src="https://opencollective.com/Cms/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/Cms/sponsor/7/website" target="_blank"><img src="https://opencollective.com/Cms/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/Cms/sponsor/8/website" target="_blank"><img src="https://opencollective.com/Cms/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/Cms/sponsor/9/website" target="_blank"><img src="https://opencollective.com/Cms/sponsor/9/avatar.svg"></a>
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
+

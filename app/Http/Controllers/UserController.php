@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller as BaseController;
 use Litepie\Theme\ThemeAndViews;
-use Litepie\User\Traits\UserPages;
 use Litepie\User\Traits\RoutesAndGuards;
-use Litepie\User\Http\Response\UserResponse;
+use Litepie\User\Traits\UserPages;
+use App\Http\Response\ResourceResponse;
+
 
 class UserController extends BaseController
 {
@@ -19,12 +20,24 @@ class UserController extends BaseController
      */
     public function __construct()
     {
-        $this->response   = resolve(UserResponse::class);
-        if (!empty(getenv('guard')) && getenv('guard') != 'web') {
-            $this->middleware('auth:' . $this->getGuard());
-        }
-
+        guard(request()->guard . '.web');
+        $this->middleware('auth:' . guard());
+        $this->response = app(ResourceResponse::class);
         $this->setTheme();
+    }
+
+    /**
+     * Show dashboard for each user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function home()
+    {
+        return $this->response
+            ->layout('user')
+            ->title('Dashboard')
+            ->view('home')
+            ->output();
     }
 
 }
